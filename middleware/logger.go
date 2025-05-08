@@ -10,13 +10,13 @@ import (
 func RequestLogger() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		start := time.Now()
-		c.Next()
+		ctx.Next()
 		duration := time.Since(start)
 
 		log.Printf("[REQUEST] %s %s | %d | %v",
-			c.Request.Method,
-			c.Request.URL.Path,
-			c.Writer.Status(),
+			ctx.Request.Method,
+			ctx.Request.URL.Path,
+			ctx.Writer.Status(),
 			duration,
 		)
 	}
