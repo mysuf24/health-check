@@ -13,10 +13,10 @@ func ConnectDB() {
 	dns := "host=localhost user=postgres password=123 port=5432 dbname=db_merchant sslmode=disable TimeZone=Asia/Jakarta"
 	database, err := gorm.Open(postgres.Open(dns), &gorm.Config{})
 	if err != nil {
-		log.Fatal("gagal untuk connect ke database: %v", err)
+		log.Fatalf("gagal untuk connect ke database: %v", err)
 	}
 	log.Println("[INFO] Berhasil koneksi ke database")
-	
+
 	DB = database
 }
 func PingDB() error {
